@@ -55,7 +55,7 @@
         
         <div class="dropdown">
           <button class="dropbtn">Dropdown hover</button>
-          <div class="dropdown-content">
+          <div class="dropdown-content" >
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="dropdown" id="drop">
-          <button class="dropbtn" id="dropbtn">Dropdown click</button>
+          <button class="dropbtn" id="dropbtn" onclick="myFunction()">Dropdown click</button>
           <div class="dropcon" id="dropcon">
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
@@ -75,14 +75,14 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
-    document.getElementById("dropbtn").classList.toggle("show");
+    document.getElementById("dropcon").classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('#drop')) {
+  if (!event.target.matches('.dropbtn')) {
 
-    var dropdowns = document.getElementsById("dropcon");
+    var dropdowns = document.getElementsByClassName("dropcon");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
