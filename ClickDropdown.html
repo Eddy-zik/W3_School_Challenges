@@ -18,7 +18,7 @@
             display: inline-block;
         }
         
-        .dropdown-content {
+        .dropdown-content, .dropcon {
             display: none;
             position: absolute;
             background-color: #f1f1f1;
@@ -32,6 +32,12 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+        }
+        #drop{
+            margin-left: 50px;
+        }
+        #dropbtn{
+            background-color: blue;
         }
         
         .dropdown-content a:hover {background-color: #ddd;}
@@ -47,14 +53,45 @@
         <p>Move the mouse over the button to open the dropdown menu.</p>
         
         <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
+          <button class="dropbtn">Dropdown hover</button>
           <div class="dropdown-content">
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
           </div>
         </div>
+
+        <div class="dropdown" id="drop">
+          <button class="dropbtn" id="dropbtn">Dropdown click</button>
+          <div class="dropcon" id="dropcon">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
         
+        <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("dropbtn").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('#drop')) {
+
+    var dropdowns = document.getElementsById("dropcon");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
         </body>
         
 </html>
